@@ -14,6 +14,7 @@ public class Test {
             initialArray.add(new Random().nextInt(20));
         }
         initialArray.display();
+        //TODO: допилить метод создания копии массива, выполнить основное задание
 
     }
 }
