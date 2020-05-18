@@ -6,31 +6,28 @@ import java.util.Random;
 public class Test {
 
     private static final int ARRAY_SIZE = 10_000;
+    private static final int MAX_VALUE = 10_000;
 
     public static void main(String[] args) {
 
         Integer[] initials = new Integer[ARRAY_SIZE];
         for (int i = 0; i < initials.length; i++) {
-            initials[i] = new Random().nextInt();
+            initials[i] = new Random().nextInt(MAX_VALUE);
         }
 
         Array<Integer> arr1 = new ArrayImpl(Arrays.copyOf(initials, initials.length));
         Array<Integer> arr2 = new ArrayImpl(Arrays.copyOf(initials, initials.length));
         Array<Integer> arr3 = new ArrayImpl(Arrays.copyOf(initials, initials.length));
 
-        long start;
-        start = System.currentTimeMillis();
-        arr1.sortBubble();
-        System.out.println((System.currentTimeMillis() - start) + " - sortBubble");
+        measure(arr1::sortBubble, "sortBubble");
+        measure(arr2::sortSelect, "sortSelect");
+        measure(arr3::sortInsert, "sortInsert");
+    }
 
-        start = System.currentTimeMillis();
-        arr2.sortSelect();
-        System.out.println((System.currentTimeMillis() - start) + " - sortSelection");
-
-        start = System.currentTimeMillis();
-        arr3.sortInsert();
-        System.out.println((System.currentTimeMillis() - start) + " - sortInsert");
-
+    private static void measure(Runnable action, String actionName) {
+        long start = System.currentTimeMillis();
+        action.run();
+        System.out.printf("Sorting time for method '%s' - %d\n", actionName, System.currentTimeMillis() - start);
     }
 
 }
