@@ -19,4 +19,6 @@ public class FlipTheString {
 }
 
 // заглушка к ДЗ 7
+// заглушка к ДЗ 8
+
 
