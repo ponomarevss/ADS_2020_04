@@ -15,4 +15,8 @@ public class FlipTheString {
         Stack<Character> characterStack = new StackImpl(characters);
         while (!characterStack.isEmpty()) System.out.print(characterStack.pop());
     }
+
 }
+
+// заглушка к ДЗ 7
+
