@@ -2,7 +2,7 @@ package lesson3.queue;
 
 public interface Queue<E>  {
 
-    void insert (E value);
+    boolean insert (E value);
 
     E remove();
 
