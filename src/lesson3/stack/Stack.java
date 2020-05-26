@@ -2,7 +2,7 @@ package lesson3.stack;
 
 public interface Stack<E> {
 
-    boolean push(E value);
+    void push(E value);
 
     E pop();
 

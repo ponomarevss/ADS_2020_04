@@ -19,11 +19,11 @@ public class StackImpl<E> implements Stack<E> {
 
 
     @Override
-    public boolean push(E value) {
-        if(isFull()) return false;
+    public void push(E value) {
+//        if(isFull()) return false;
         data[size] = value;
         size++;
-        return true;
+//        return true;
     }
 
     @Override
