@@ -2,7 +2,7 @@ package lesson2;
 
 import java.util.Arrays;
 
-public class ArrayImpl<E extends Object & Comparable<? super E>> implements Array<E> {
+public class ArrayImpl<E extends Comparable<? super E>> implements Array<E> {
 
     protected E[] data;
     protected int size;
@@ -22,7 +22,7 @@ public class ArrayImpl<E extends Object & Comparable<? super E>> implements Arra
 
     @SuppressWarnings("unchecked")
     public ArrayImpl(E[] data, int capacity) {
-        this.data = data != null ? data : (E[]) new Object[capacity];
+        this.data = data != null ? data : (E[]) new Comparable[capacity];
         this.size = data != null ? data.length : 0;
     }
 
@@ -132,9 +132,5 @@ public class ArrayImpl<E extends Object & Comparable<? super E>> implements Arra
         E temp = data[i];
         data[i] = data[j];
         data[j] = temp;
-    }
-
-    public E[] getData() {
-        return data;
     }
 }
