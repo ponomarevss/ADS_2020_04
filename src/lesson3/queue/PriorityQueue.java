@@ -7,7 +7,8 @@ public class PriorityQueue<E extends Object & Comparable<? super E>> extends Que
     }
 
     @Override
-    public void insert(E value) {
+    public boolean insert(E value) {
+        if(isFull()) return false;
         int index;
         for (index = size() - 1; index >= 0 ; index--) {
             if(value.compareTo(data[index]) > 0) {
@@ -19,6 +20,7 @@ public class PriorityQueue<E extends Object & Comparable<? super E>> extends Que
         }
         data[index + 1] = value;
         size++;
+        return true;
     }
 
     @Override

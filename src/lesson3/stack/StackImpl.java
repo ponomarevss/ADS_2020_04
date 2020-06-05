@@ -1,6 +1,5 @@
 package lesson3.stack;
 
-import java.util.Objects;
 
 public class StackImpl<E> implements Stack<E> {
 
@@ -12,6 +11,7 @@ public class StackImpl<E> implements Stack<E> {
         this.data = (E[]) new Object[maxSize];
     }
 
+    @SafeVarargs
     public StackImpl(E... data) {
         this.data = data;
         this.size = data.length;
@@ -20,12 +20,15 @@ public class StackImpl<E> implements Stack<E> {
 
     @Override
     public void push(E value) {
+//        if(isFull()) return false;
         data[size] = value;
         size++;
+//        return true;
     }
 
     @Override
     public E pop() {
+        if(isEmpty()) return null;
         return data[--size];
     }
 

@@ -18,21 +18,26 @@ public class DequeueImpl<E> implements Dequeue<E> {
     }
 
     @Override
-    public void insertLeft(E value) {
+    public boolean insertLeft(E value) {
+        if(isFull()) return false;
         if (tail == data.length - 1) tail = DEFAULT_TAIL;
         data[++tail] = value;
         size++;
+        return true;
     }
 
     @Override
-    public void insertRight(E value) {
+    public boolean insertRight(E value) {
+        if(isFull()) return false;
         if(head == DEFAULT_HEAD) head = data.length;
         data[--head] = value;
         size++;
+        return true;
     }
 
     @Override
     public E removeLeft() {
+        if(isEmpty()) return null;
         if(tail == DEFAULT_TAIL) tail = data.length - 1;
         E removedValue = data[tail--];
         size--;
@@ -41,6 +46,7 @@ public class DequeueImpl<E> implements Dequeue<E> {
 
     @Override
     public E removeRight() {
+        if(isEmpty()) return null;
         if(head == data.length) head = DEFAULT_HEAD;
         E removedValue = data[head++];
         size--;
