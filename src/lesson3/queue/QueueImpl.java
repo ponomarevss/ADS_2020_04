@@ -18,14 +18,17 @@ public class QueueImpl<E> implements Queue<E> {
     }
 
     @Override
-    public void insert(E value) {
+    public boolean insert(E value) {
+        if(isFull()) return false;
         if (tail == data.length - 1) tail = DEFAULT_TAIL;
         data[++tail] = value;
         size++;
+        return true;
     }
 
     @Override
     public E remove() {
+        if(isEmpty()) return null;
         if(head == data.length) head = DEFAULT_HEAD;
         E removedValue = data[head++];
         size--;

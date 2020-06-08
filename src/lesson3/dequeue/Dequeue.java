@@ -4,8 +4,8 @@ public interface Dequeue<E> {
 
 
 
-    void insertLeft (E value);
-    void insertRight (E value);
+    boolean insertLeft (E value);
+    boolean insertRight (E value);
 
     E removeLeft();
     E removeRight();
