@@ -17,6 +17,3 @@ public class FlipTheString {
     }
 
 }
-
-// заглушка к ДЗ 7
-
