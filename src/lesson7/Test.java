@@ -33,7 +33,7 @@ public class Test {
         graph.addEdges("Орел", "Курск");
         graph.addEdges("Курск", "Воронеж");
 
-        graph.shortestPath("Москва", "Воронеж");
+        graph.shortestPath("Тамбов", "Орел");
     }
 
 
